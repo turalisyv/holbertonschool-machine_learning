@@ -3,6 +3,7 @@
 My module document
 '''
 
+import pandas as pd
 
 def from_numpy(array):
     '''
