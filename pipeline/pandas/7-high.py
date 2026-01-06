@@ -8,4 +8,5 @@ def high(df):
     '''
     My function document
     '''
-    return df.sort_values("High", na_position="first")[::-1].head()
+    df = df.dropna()
+    return df.sort_values("High")[::-1].head()
