@@ -5,4 +5,4 @@ My module document
 
 
 def array(df):
-    return [[i, j] for i, j in zip(list(df["High"][-10:]), list(df["Close"][-10:]))]
+    return df[['High', 'Close']].tail(10).to_numpy()
