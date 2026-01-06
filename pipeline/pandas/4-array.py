@@ -2,9 +2,7 @@
 '''
 My module document
 '''
-import pandas as pd
-import numpy as np
 
 
 def array(df):
-    return np.array(df[["High", "Close"]].tail(10))
+    return [[i, j] for i, j in zip(list(df["High"][-10:]), list(df["Close"][-10:]))]
