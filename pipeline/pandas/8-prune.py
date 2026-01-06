@@ -8,5 +8,5 @@ def prune(df):
     '''
     My function document
     '''
-    df = df.fillna("Close")
+    df = df.dropna(subset="Close")
     return df
