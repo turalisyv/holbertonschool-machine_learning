@@ -3,7 +3,7 @@
 My module document
 '''
 import pandas as pd
-iimport numpy as np
+import numpy as np
 
 
 def array(df):
