@@ -9,4 +9,4 @@ def from_file(filename, delimiter):
     '''
     My function document
     '''
-    return pd.DataFrame.to_csv(filename, sep=delimiter)
+    return pd.read_csv(filename, sep=delimiter)
