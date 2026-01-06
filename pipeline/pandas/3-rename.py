@@ -9,5 +9,5 @@ def rename(df):
     '''
     My function document
     '''
-    df.rename({"Timestamp": "Datetime"})
-    return df
+    df = df.rename(columns={"Timestamp": "Datetime"})
+    return df[["Datetime", "Close"]]
