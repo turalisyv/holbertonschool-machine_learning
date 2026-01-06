@@ -10,7 +10,9 @@ def fill(df):
     '''
     df = df.drop(columns=["Weighted_Price"])
     df['Close'] = df['Close'].ffill()
-    df['High'], df['Low'], df['Open'] = df['Close'], df['Close'], df['Close']
+    df['High'] = df['High'].fillna(df['Close'])
+    df['Low'] = df['High'].fillna(df['Close'])
+    df['Open'] = df['High'].fillna(df['Close'])
     df['Volume_(BTC)'] = df['Volume_(BTC)'].fillna(0)
     df['Volume_(Currency)'] = df['Volume_(Currency)'].fillna(0)
     return df
