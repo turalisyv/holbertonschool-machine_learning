@@ -10,4 +10,5 @@ def rename(df):
     My function document
     '''
     df = df.rename(columns={"Timestamp": "Datetime"})
+    df.to_datetime(df["Datetime"], unit="s")
     return df[["Datetime", "Close"]]
