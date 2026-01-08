@@ -8,4 +8,5 @@ def analyze(df):
     '''
     My function document
     '''
+    df = df.set_index("Timestamp")
     return df.describe()
