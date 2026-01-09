@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+'''
+My module document
+'''
+
+
+def line():
+    '''
+    My function document
+    '''
+    y = np.arange(0, 11) ** 3
+    plt.figure(figsize=(6.4, 4.8))
+    x = np.arange(0, 11)
+    plt.plot(x, y, c="red")
