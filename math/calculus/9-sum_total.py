@@ -3,6 +3,7 @@
 My module document
 '''
 
+
 def summation_i_squared(n):
     '''
     My function document
