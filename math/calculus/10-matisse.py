@@ -10,6 +10,9 @@ def poly_derivative(poly):
     '''
     der = []
 
+    if poly == [0]:
+        return poly
+
     for i in range(1, len(poly)):
         der.append(i * poly[i])
 
