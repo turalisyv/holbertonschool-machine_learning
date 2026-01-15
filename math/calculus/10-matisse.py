@@ -16,10 +16,11 @@ def poly_derivative(poly):
         if not isinstance(i, (int, float)):
             return None
 
-    der = [0]
 
-    if poly == [] or len(poly) == 1:
-        return der
+    der = []
+
+    if poly == [0] or poly == [] or len(poly) == 1:
+        return [0]
 
     for i in range(1, len(poly)):
         der.append(i * poly[i])
