@@ -24,7 +24,6 @@ def poly_integral(poly, C=0):
 
     integral = [C]
 
-
     for i in range(0, len(poly)):
         integral.append(poly[i] / (i + 1))
 
