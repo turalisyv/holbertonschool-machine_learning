@@ -8,10 +8,18 @@ def poly_derivative(poly):
     '''
     My function document
     '''
-    der = []
 
-    if poly == [0] or poly == []:
-        return poly
+    if not isinstance(poly, list):
+        return None
+
+    for i in poly:
+        if not isinstance(i, (int, float)):
+            return None
+
+    der = [0]
+
+    if poly == [] or len(poly) == 1:
+        return der
 
     for i in range(1, len(poly)):
         der.append(i * poly[i])
