@@ -19,11 +19,15 @@ def poly_integral(poly, C=0):
     if not isinstance(C, (int, float)):
         return None
 
+    if poly == [0]:
+        return [C]
+
     integral = [C]
+
 
     for i in range(0, len(poly)):
         integral.append(poly[i] / (i + 1))
 
-    integral = [round(i) if round(i, 10) == int(i) else i for i in integral]
+    integral = [round(i) if i == int(i) else i for i in integral]
 
     return integral
