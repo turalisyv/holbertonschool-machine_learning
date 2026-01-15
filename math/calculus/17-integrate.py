@@ -24,4 +24,6 @@ def poly_integral(poly, C=0):
     for i in range(0, len(poly)):
         integral.append(poly[i] * (1 / (i + 1)))
 
+    integral = [round(i) if i == int(i) else i for i in integral]
+
     return integral
