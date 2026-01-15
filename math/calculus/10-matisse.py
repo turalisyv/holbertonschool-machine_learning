@@ -9,17 +9,16 @@ def poly_derivative(poly):
     My function document
     '''
 
-    if not isinstance(poly, list):
+    if not isinstance(poly, list) or poly == []:
         return None
 
     for i in poly:
         if not isinstance(i, (int, float)):
             return None
 
-
     der = []
 
-    if poly == [0] or poly == [] or len(poly) == 1:
+    if poly == [0] or len(poly) == 1:
         return [0]
 
     for i in range(1, len(poly)):
