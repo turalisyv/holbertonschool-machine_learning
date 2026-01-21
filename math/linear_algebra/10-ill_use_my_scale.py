@@ -2,7 +2,7 @@
 '''
 My module document
 '''
-import numpy as np
+
 
 
 def np_shape(matrix):
