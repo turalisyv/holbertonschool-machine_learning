@@ -13,7 +13,7 @@ def matrix_shape(matrix):
         shape.append(len(matrix))
         matrix = matrix[0]
 
-      if isinstance(matrix, int):
-          break
+        if isinstance(matrix, int):
+            break
 
     return shape
