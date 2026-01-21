@@ -2,7 +2,6 @@
 '''
 My module document
 '''
-import numpy as np
 
 
 def mat_mul(mat1, mat2):
