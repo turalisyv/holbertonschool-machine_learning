@@ -4,7 +4,6 @@ My module document
 '''
 
 
-
 def np_shape(matrix):
     '''
     My function document
