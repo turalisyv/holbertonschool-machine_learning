@@ -14,11 +14,11 @@ def definiteness(matrix):
         raise TypeError("matrix must be a numpy.ndarray")
 
     try:
-        np.linalg.eigvals(matrix)
+        np.linalg.eigvalsh(matrix)
     except Exception as e:
         return None
 
-    A = np.linalg.eigvals(matrix)
+    A = np.linalg.eigvalsh(matrix)
 
     if np.all(A > 0):
         return "Positive definite"
