@@ -170,6 +170,10 @@ def inverse(matrix):
     if matrix == [[]]:
         raise ValueError("matrix must be a non-empty square matrix")
 
+    for i in range(len(matrix)):
+        if len(matrix) != len(matrix[i]):
+            raise ValueError("matrix must be a non-empty square matrix")
+
     n = len(matrix)
     new_matrix = [[matrix[i][j] for j in range(n)] for i in range(n)]
 
