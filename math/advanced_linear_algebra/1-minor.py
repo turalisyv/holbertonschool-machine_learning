@@ -80,7 +80,7 @@ def remove_row_col(matrix, row, col):
                 temp.append(matrix[i][j])
 
         res.append(temp)
-    
+
     del res[row]
     return res
 
@@ -89,6 +89,14 @@ def minor(matrix):
     """
     My function document
     """
+
+    if not isinstance(matrix, list):
+        raise TypeError("matrix must be a list of lists")
+
+    for i in matrix:
+        if not isinstance(i, list):
+            raise TypeError("matrix must be a list of lists")
+
     n = len(matrix)
     if n == 1:
         return [[1]]
@@ -102,10 +110,6 @@ def minor(matrix):
 
     if matrix == []:
         raise Exception("matrix must be a list of lists")
-
-    for i in matrix:
-        if not isinstance(i, list):
-            raise TypeError("matrix must be a list of lists")
 
     for i in range(len(matrix)):
         if len(matrix) != len(matrix[i]):
