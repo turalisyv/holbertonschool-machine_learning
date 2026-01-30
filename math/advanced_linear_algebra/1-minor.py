@@ -15,6 +15,7 @@ def mul_by_scalar(matrix, index, scalar):
 
     return matrix
 
+
 def to_upper_triangular(matrix):
     '''
     My function document
@@ -40,6 +41,7 @@ def to_upper_triangular(matrix):
                 matrix[j][k] -= factor * matrix[i][k]
 
     return matrix
+
 
 def determinant(matrix):
     '''
@@ -70,6 +72,7 @@ def determinant(matrix):
 
     return int(round(det))
 
+
 def remove_row_col(matrix, row, col):
     '''
     My function document
@@ -86,6 +89,7 @@ def remove_row_col(matrix, row, col):
 
     del res[row]
     return res
+
 
 def minor(matrix):
     """
@@ -114,7 +118,6 @@ def minor(matrix):
     for i in range(len(matrix)):
         if len(matrix) != len(matrix[i]):
             raise ValueError("matrix must be a non-empty square matrix")
-
 
     for i in range(n):
         for j in range(n):
