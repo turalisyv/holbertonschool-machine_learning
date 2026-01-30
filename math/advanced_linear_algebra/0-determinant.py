@@ -1,7 +1,45 @@
-#!/usr/bin/env python3
+!/usr/bin/env python3
 '''
 My module document
 '''
+
+
+def mul_by_scalar(matrix, index, scalar):
+    '''
+    My function document
+    '''
+    n = len(matrix)
+
+    for i in range(n):
+        matrix[index][i] *= scalar
+
+    return matrix
+
+
+def to_upper_triangular(matrix):
+    '''
+    My function document
+    '''
+    n = len(matrix)
+
+    for i in range(n):
+        pivot = matrix[i][i]
+
+        if pivot == 0:
+            continue
+
+        for j in range(i + 1, n):
+            target_val = matrix[j][i]
+
+            if target_val == 0:
+                continue
+
+            factor = target_val / pivot
+
+            for k in range(i, len(matrix[0])):
+                matrix[j][k] -= factor * matrix[i][k]
+
+    return matrix
 
 
 def determinant(matrix):
@@ -19,22 +57,15 @@ def determinant(matrix):
         if not isinstance(i, list):
             raise Exception("matrix must be a list of lists")
 
-        if len(i) != len(matrix):
-            raise Exception("matrix must be a square matrix")
+    row = len(matrix)
+    col = len(matrix[0])
 
-    if len(matrix) == 1:
-        return matrix[0][0]
+    if row != col:
+        raise Exception("matrix must be a square matrix")
 
-    if len(matrix) == 2:
-        return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1] 
+    matrix = to_upper_triangular(matrix)
+    det = 1
+    for i in range(row):
+        det = det * matrix[i][i]
 
-    if len(matrix) == 3:
-        a1 = matrix[0][0] * matrix[1][1] * matrix[2][2]
-        a2 = matrix[1][0] * matrix[2][1] * matrix[0][2]
-        a3 = matrix[2][0] * matrix[0][1] * matrix[1][2]
-
-        a4 = matrix[0][2] * matrix[1][1] * matrix[2][0]
-        a5 = matrix[1][2] * matrix[2][1] * matrix[0][0]
-        a6 = matrix[2][2] * matrix[0][1] * matrix[1][0]
-
-        return ((a1 + a2 + a3) - (a4 + a5 + a6))
+    return int(det)
