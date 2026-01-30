@@ -13,6 +13,9 @@ def definiteness(matrix):
     if not isinstance(matrix, np.ndarray):
         raise TypeError("matrix must be a numpy.ndarray")
 
+    if not np.allclose(matrix, matrix.T):
+        return None
+
     try:
         np.linalg.eigvalsh(matrix)
     except Exception as e:
