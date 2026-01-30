@@ -20,6 +20,7 @@ def to_upper_triangular(matrix):
     '''
     My function document
     '''
+
     n = len(matrix)
 
     for i in range(n):
@@ -46,6 +47,9 @@ def determinant(matrix):
     '''
     My function document
     '''
+
+    if matrix == [[]]:
+        return 1
 
     if matrix == []:
         raise Exception("matrix must be a list of lists")
@@ -98,12 +102,7 @@ def minor(matrix):
     if n == 1:
         return [[1]]
 
-    # Initialize a new matrix of the same size with zeros
     res_matrix = [[0 for _ in range(n)] for _ in range(n)]
-
-
-    if matrix == [[]]:
-        return 1
 
     if matrix == []:
         raise Exception("matrix must be a list of lists")
