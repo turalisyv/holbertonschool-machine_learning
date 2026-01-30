@@ -2,6 +2,7 @@
 '''
 My module document
 '''
+import numpy as np
 
 
 def definiteness(matrix):
