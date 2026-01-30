@@ -91,6 +91,9 @@ def minor(matrix):
     My function document
     """
 
+    if matrix == [[]]:
+        raise ValueError("matrix must be a non-empty square matrix")
+
     if not isinstance(matrix, list):
         raise TypeError("matrix must be a list of lists")
 
