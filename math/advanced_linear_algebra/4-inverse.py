@@ -167,6 +167,9 @@ def inverse(matrix):
     My function document
     '''
 
+    if matrix == [[]]:
+        raise ValueError("matrix must be a non-empty square matrix")
+
     n = len(matrix)
     new_matrix = [[matrix[i][j] for j in range(n)] for i in range(n)]
 
