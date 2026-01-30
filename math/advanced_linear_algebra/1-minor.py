@@ -47,9 +47,6 @@ def determinant(matrix):
     My function document
     '''
 
-    if matrix == [[]]:
-        return 1
-
     if matrix == []:
         raise Exception("matrix must be a list of lists")
 
