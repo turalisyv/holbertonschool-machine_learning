@@ -15,7 +15,6 @@ def mul_by_scalar(matrix, index, scalar):
 
     return matrix
 
-
 def to_upper_triangular(matrix):
     '''
     My function document
@@ -41,7 +40,6 @@ def to_upper_triangular(matrix):
                 matrix[j][k] -= factor * matrix[i][k]
 
     return matrix
-
 
 def determinant(matrix):
     '''
@@ -88,7 +86,6 @@ def remove_row_col(matrix, row, col):
 
     del res[row]
     return res
-
 
 def minor(matrix):
     """
