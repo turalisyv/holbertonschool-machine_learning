@@ -160,3 +160,24 @@ def adjugate(matrix):
     '''
 
     return transpose(cofactor(matrix))
+
+
+def inverse(matrix):
+    '''
+    My function document
+    '''
+
+    n = len(matrix)
+    new_matrix = [[matrix[i][j] for j in range(n)] for i in range(n)]
+
+    D = determinant(new_matrix)
+    adj = adjugate(matrix)
+
+    if D == 0:
+        return None
+
+    for i in range(n):
+        for j in range(n):
+            adj[i][j] = adj[i][j] / D
+
+    return adj
