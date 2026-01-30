@@ -57,11 +57,12 @@ def determinant(matrix):
         if not isinstance(i, list):
             raise Exception("matrix must be a list of lists")
 
+    for i in range(len(matrix)):
+        if len(matrix) != len(matrix[i]):
+            raise Exception("matrix must be a square matrix")
+
     row = len(matrix)
     col = len(matrix[0])
-
-    if row != col:
-        raise Exception("matrix must be a square matrix")
 
     matrix = to_upper_triangular(matrix)
     det = 1
