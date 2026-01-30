@@ -70,7 +70,7 @@ def determinant(matrix):
     for i in range(row):
         det = det * matrix[i][i]
 
-    return int(det)
+    return int(round(det))
 
 def remove_row_col(matrix, row, col):
     '''
