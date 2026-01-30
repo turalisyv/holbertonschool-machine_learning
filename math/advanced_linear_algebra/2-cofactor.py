@@ -126,6 +126,7 @@ def minor(matrix):
 
     return res_matrix
 
+
 def cofactor(matrix):
     '''
     My function document
