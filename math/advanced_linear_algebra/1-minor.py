@@ -73,6 +73,10 @@ def determinant(matrix):
     return int(det)
 
 def remove_row_col(matrix, row, col):
+    '''
+    My function document
+    '''
+
     res = []
     for i in range(len(matrix)):
         temp = []
