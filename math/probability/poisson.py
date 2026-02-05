@@ -9,6 +9,7 @@ class Poisson:
     My class document
     '''
     def __init__(self, data=None, lambtha=1.):
+        self.e = 2.7182818285
         self.data = data
 
         if lambtha > 0:
@@ -24,3 +25,18 @@ class Poisson:
                 raise ValueError("data must contain multiple values")
 
             self.lambtha = sum(self.data) / len(self.data)
+
+    @staticmethod
+    def fact(n):
+        res = 1
+        for i in range(1, n+1):
+            res = res * i
+
+        return res
+
+    def pmf(self, k):
+        k = int(k)
+        if k < 0:
+            return 0
+
+        return (self.e**(-self.lambtha) * self.lambtha**(k)) / Poisson.fact(k)
