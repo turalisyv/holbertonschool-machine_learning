@@ -51,6 +51,10 @@ class Poisson:
         '''
         cdf function
         '''
+        k = int(k)
+        if k < 0:
+            return 0
+
         res = 0
         for i in range(k+1):
             res = res + self.pmf(i)
