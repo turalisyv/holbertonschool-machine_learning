@@ -46,3 +46,13 @@ class Poisson:
             return 0
 
         return (self.e**(-self.lambtha) * self.lambtha**(k)) / Poisson.fact(k)
+
+    def cdf(self, k):
+        '''
+        cdf function
+        '''
+        res = 0
+        for i in range(k+1):
+            res = res + self.pmf(i)
+
+        return res
