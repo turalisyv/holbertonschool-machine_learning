@@ -38,6 +38,9 @@ class Poisson:
         return res
 
     def pmf(self, k):
+        '''
+        pmf function
+        '''
         k = int(k)
         if k < 0:
             return 0
