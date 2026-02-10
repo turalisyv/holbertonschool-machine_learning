@@ -1,80 +1,87 @@
 #!/usr/bin/env python3
-'''
+"""
 My module document
-'''
+"""
 
 
 class Normal:
-    '''
+    """
     My class document
-    '''
-    def __init__(self, data=None, mean=0., stddev=1.):
+    """
+
+    def __init__(self, data=None, mean=0.0, stddev=1.0):
         self.e = 2.7182818285
         self.pi = 3.1415926536
         self.data = data
         self.mean = mean
 
-        if stddev > 0:
-            self.stddev = stddev
-        else:
+        if stddev <= 0:
             raise ValueError("stddev must be a positive value")
+        self.stddev = stddev
 
         if self.data is not None:
-            if not isinstance(data, list):
+            if not isinstance(self.data, list):
                 raise TypeError("data must be a list")
 
-            if len(data) < 2:
+            if len(self.data) < 2:
                 raise ValueError("data must contain multiple values")
 
             self.mean = sum(self.data) / len(self.data)
 
-            self.variance = 0
-            for i in self.data:
-                self.variance += (i - self.mean) ** 2
+            variance = 0
+            for value in self.data:
+                variance += (value - self.mean) ** 2
 
-            self.stddev = self.sqrt(self.variance / len(self.data))
+            self.stddev = self.sqrt(variance / len(self.data))
 
     def z_score(self, x):
-        '''
+        """
         My z_score function
-        '''
+        """
         return (x - self.mean) / self.stddev
 
     def x_value(self, z):
-        '''
+        """
         My x_value function
-        '''
+        """
         return z * self.stddev + self.mean
 
     def pdf(self, x):
-        '''
+        """
         My pdf function
-        '''
-        temp = 1 / (self.stddev * ((2 * self.pi) ** 0.5))
+        """
+        coefficient = 1 / (self.stddev * (2 * self.pi) ** 0.5)
         exponent = -0.5 * ((x - self.mean) / self.stddev) ** 2
-        return temp * (self.e ** exponent)
+        return coefficient * (self.e ** exponent)
 
     def cdf(self, x):
-        '''
+        """
         My cdf function
-        '''
-        return 0.5 * (1 + self.erf((x - self.mean) / (self.stddev * 2 ** 0.5)))
+        """
+        return 0.5 * (
+            1 + self.erf((x - self.mean) / (self.stddev * 2 ** 0.5))
+        )
 
     def erf(self, x):
-        '''
+        """
         My erf function
-        '''
-        return (2 / (self.pi ** 0.5)) * (x - ((x ** 3) / 3) + ((x ** 5) / 10)
-            - ((x ** 7) / 42) + ((x ** 9) / 216))
+        """
+        return (2 / self.pi ** 0.5) * (
+            x
+            - (x ** 3) / 3
+            + (x ** 5) / 10
+            - (x ** 7) / 42
+            + (x ** 9) / 216
+        )
 
     @staticmethod
     def sqrt(x):
-        '''
+        """
         My sqrt function
-        '''
-        res = x
+        """
+        result = x
 
-        for i in range(1000):
-            res = 0.5 * (res + x / res)
+        for _ in range(1000):
+            result = 0.5 * (result + x / result)
 
-        return res
+        return result
