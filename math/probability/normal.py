@@ -36,7 +36,7 @@ class Normal:
     def sqrt(x):
         res = x
 
-        for i in range(1000):
+        for i in range(1000000):
             res = 0.5 * (res + x / res)
 
         return res
