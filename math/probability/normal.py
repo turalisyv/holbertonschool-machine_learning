@@ -28,6 +28,15 @@ class Normal:
             self.mean = sum(self.data) / len(self.data)
 
             for i in self.data:
-                self.stddev += (i - self.mean) ** 2
+                self.stddev = self.stddev + (i - self.mean) ** 2
 
-            self.stddev = (self.stddev /  (len(self.data) - 1)) ** 0.5
+            self.stddev = self.sqrt(self.stddev /  len(self.data))
+
+    @staticmethod
+    def sqrt(x):
+        res = x
+
+        for i in range(1000):
+            res = 0.5 * (res + x / res)
+
+        return res
