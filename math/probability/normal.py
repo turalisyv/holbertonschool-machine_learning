@@ -64,7 +64,7 @@ class Normal:
         '''
         My erf function
         '''
-        return (2 / (self.pi ** 0.5)) * (x - ((x ** 3) / 3) + ((x ** 5) / 10)
+        return (2 / (self.pi ** 0.5)) * (x - ((x ** 3) / 3) + ((x ** 5) / 10) \
           - ((x ** 7) / 42) + ((x ** 9) / 216))
 
     @staticmethod
