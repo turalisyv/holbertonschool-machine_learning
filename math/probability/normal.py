@@ -11,7 +11,6 @@ class Normal:
     def __init__(self, data=None, mean=0., stddev=1.):
         self.e = 2.7182818285
         self.data = data
-
         self.mean = mean
 
         if stddev > 0:
@@ -29,5 +28,15 @@ class Normal:
             self.mean = sum(self.data) / len(self.data)
 
             for i in self.data:
-                self.stddev += (i - self.mean)**2
-            self.stddev = np.sqrt(self.stddev /  len(self.data))
+                self.stddev += (i - self.mean) ** 2
+
+            self.stddev = self.sqrt(self.stddev /  len(self.data))
+
+    @staticmethod
+    def sqrt(x):
+        res = x
+
+        for i in range(1000):
+            res = 0.5 * (res + x / res)
+
+        return res
