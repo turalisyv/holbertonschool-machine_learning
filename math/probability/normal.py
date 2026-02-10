@@ -40,10 +40,10 @@ class Normal:
         return z * self.stddev + self.mean
 
     @staticmethod
-    '''
-    My sqrt function
-    '''
     def sqrt(x):
+        '''
+        My sqrt function
+        '''
         res = x
 
         for i in range(1000):
