@@ -47,12 +47,12 @@ class Exponential:
 
         return self.lambtha * self.e ** (-self.lambtha * x)
 
-    def cdf(self, k):
+    def cdf(self, x):
         '''
         cdf function
         '''
-        k = int(k)
-        if k < 0:
+        x = int(x)
+        if x < 0:
             return 0
 
         return 1 - self.e ** (-self.lambtha * x)
