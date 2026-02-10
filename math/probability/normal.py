@@ -34,9 +34,15 @@ class Normal:
             self.stddev = self.sqrt(self.variance / len(self.data))
 
     def z_score(self, x):
+        '''
+        My z_score function
+        '''
         return (x - self.mean) / self.stddev
 
     def x_value(self, z):
+        '''
+        My x_value function
+        '''
         return z * self.stddev + self.mean
 
     @staticmethod
