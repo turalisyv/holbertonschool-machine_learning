@@ -45,7 +45,7 @@ class Normal:
         My x_value function
         '''
         return z * self.stddev + self.mean
-    
+
     def pdf(self, x):
         '''
         My pdf function
