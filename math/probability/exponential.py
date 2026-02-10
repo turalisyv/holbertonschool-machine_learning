@@ -41,7 +41,6 @@ class Exponential:
         '''
         pdf function
         '''
-        x = int(x)
         if x < 0:
             return 0
 
@@ -51,7 +50,6 @@ class Exponential:
         '''
         cdf function
         '''
-        x = int(x)
         if x < 0:
             return 0
 
