@@ -9,7 +9,7 @@ class Exponential:
     My class document
     '''
     def __init__(self, data=None, lambtha=1.):
-        self.e = 2.7182818284590452
+        self.e = 2.7182818285
         self.data = data
 
         if lambtha > 0:
