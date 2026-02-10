@@ -31,7 +31,7 @@ class Normal:
             for i in self.data:
                 self.variance += (i - self.mean) ** 2
 
-            self.stddev = self.sqrt(self.variance /  len(self.data))
+            self.stddev = self.sqrt(self.variance / len(self.data))
 
     @staticmethod
     def sqrt(x):
