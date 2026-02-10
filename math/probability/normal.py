@@ -10,6 +10,7 @@ class Normal:
     '''
     def __init__(self, data=None, mean=0., stddev=1.):
         self.e = 2.7182818285
+        self.pi = 3.1415926536
         self.data = data
         self.mean = mean
 
@@ -44,6 +45,14 @@ class Normal:
         My x_value function
         '''
         return z * self.stddev + self.mean
+    
+    def pdf(self, x):
+        '''
+        My pdf function
+        '''
+        temp = 1 / (self.stddev * ((2 * self.pi) ** 0.5))
+        exponent = -0.5 * ((x - self.mean) / self.stddev) ** 2
+        return temp * (self.e ** exponent)
 
     @staticmethod
     def sqrt(x):
