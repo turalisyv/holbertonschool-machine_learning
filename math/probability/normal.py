@@ -30,4 +30,4 @@ class Normal:
             for i in self.data:
                 self.stddev += (i - self.mean) ** 2
 
-            self.stddev = (self.stddev /  len(self.data)) ** 0.5
+            self.stddev = (self.stddev /  (len(self.data) - 1)) ** 0.5
