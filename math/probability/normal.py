@@ -45,7 +45,7 @@ class Normal:
         My x_value function
         '''
         return z * self.stddev + self.mean
-
+    
     def pdf(self, x):
         '''
         My pdf function
@@ -53,6 +53,18 @@ class Normal:
         temp = 1 / (self.stddev * ((2 * self.pi) ** 0.5))
         exponent = -0.5 * ((x - self.mean) / self.stddev) ** 2
         return temp * (self.e ** exponent)
+
+    def cdf(self, x):
+        '''
+        My cdf function
+        '''
+        return 0.5 * (1 + self.erf((x - self.mean) / (self.stddev * 2 ** 0.5)))
+
+    def erf(self, x):
+        '''
+        My erf function
+        '''
+        return (2 / (self.pi ** 0.5)) * (x - ((x ** 3) / 3) + ((x ** 5) / 10) - ((x ** 7) / 42) + ((x ** 9) / 216))
 
     @staticmethod
     def sqrt(x):
