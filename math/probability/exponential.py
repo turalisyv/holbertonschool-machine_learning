@@ -55,8 +55,4 @@ class Exponential:
         if k < 0:
             return 0
 
-        res = 0
-        for i in range(k+1):
-            res = res + self.pmf(i)
-
-        return res
+        return 1 - self.e ** (-self.lambtha * x)
