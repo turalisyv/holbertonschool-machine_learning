@@ -37,15 +37,15 @@ class Exponential:
 
         return res
 
-    def pmf(self, k):
+    def pdf(self, x):
         '''
-        pmf function
+        pdf function
         '''
-        k = int(k)
-        if k < 0:
+        x = int(x)
+        if x < 0:
             return 0
 
-        return (self.e**(-self.lambtha) * self.lambtha**(k)) / Poisson.fact(k)
+        return self.lambtha * self.e ** (-self.lambtha * x)
 
     def cdf(self, k):
         '''
