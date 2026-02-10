@@ -34,7 +34,7 @@ class Normal:
 
     @staticmethod
     def sqrt(x):
-        res = x
+        res = x / 2.0
 
         for i in range(1000000):
             res = 0.5 * (res + x / res)
