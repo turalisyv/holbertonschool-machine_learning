@@ -19,7 +19,7 @@ class Binomial:
                 raise ValueError("data must contain multiple values")
 
             mean = sum(data) / len(data)
-            var = sum((x - mean) ** 2 for x in data) / (m - 1)
+            var = sum((x - mean) ** 2 for x in data) / (len(data) - 1)
 
             p = 1 - (var / mean)
             n = round(mean / p)
