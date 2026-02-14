@@ -60,9 +60,9 @@ class Binomial:
             return 0
         return self.fact(n) // (self.fact(k) * self.fact(n - k))
 
-    def pdf(self, x):
+    def pmf(self, x):
         '''
-        pdf function
+        pmf function
         '''
         x = int(x)
 
