@@ -2,7 +2,7 @@
 '''
 My module document
 '''
-import numpy
+import numpy as np
 
 
 def fact(n):
@@ -39,7 +39,7 @@ def likelihood(x, n, P):
     if x > n:
         raise ValueError("x cannot be greater than n")
 
-    if not isinstance(P, numpy.ndarray):
+    if not isinstance(P, np.ndarray):
         raise TypeError("P must be a 1D numpy.ndarray")
 
     res = np.zeros_like(P)
