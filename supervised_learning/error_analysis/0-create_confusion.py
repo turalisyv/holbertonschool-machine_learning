@@ -17,4 +17,5 @@ def create_confusion_matrix(labels, logits):
     for i, j in zip(row, col):
         conf_mat[i, j] = conf_mat[i, j] + 1
 
-    return np.ndarray.tolist(conf_mat)
+    np.set_printoptions(threshold=np.inf)
+    return conf_mat
