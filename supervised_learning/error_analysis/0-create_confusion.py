@@ -9,7 +9,8 @@ def create_confusion_matrix(labels, logits):
     '''
     My function document
     '''
-    conf_mat = np.zeros((10, 10), dtype=np.int32)
+    n = labels.shape[0]
+    conf_mat = np.zeros((n, n), dtype=np.int32)
     row = np.where(labels == 1)[1]
     col = np.where(logits == 1)[1]
 
