@@ -10,11 +10,11 @@ def create_confusion_matrix(labels, logits):
     My function document
     '''
     n = labels.shape[0]
-    conf_mat = np.zeros((n, n))
+    conf_mat = np.zeros((n, n), dtype=np.int32)
     row = np.where(labels == 1)[1]
     col = np.where(logits == 1)[1]
 
     for i, j in zip(row, col):
         conf_mat[i, j] = conf_mat[i, j] + 1
 
-    return conf_mat
+    return np.ndarray.tolist(conf_mat)
