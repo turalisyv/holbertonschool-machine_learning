@@ -7,7 +7,7 @@ sensitivity = __import__('1-sensitivity').sensitivity
 precision = __import__('2-precision').precision
 
 
-def f1(confusion):
+def f1_score(confusion):
     '''
     My function document
     '''
