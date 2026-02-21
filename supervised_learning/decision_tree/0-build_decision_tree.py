@@ -6,6 +6,9 @@ import numpy as np
 
 
 class Node:
+    """
+    Node class
+    """
     def __init__(self, feature=None, threshold=None,
                  left_child=None, right_child=None, is_root=False, depth=0):
         self.feature = feature
@@ -28,7 +31,7 @@ class Node:
 
 class Leaf(Node):
     """
-    Leaf function
+    Leaf class
     """
     def __init__(self, value, depth=None):
         super().__init__()
