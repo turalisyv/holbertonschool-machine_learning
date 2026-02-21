@@ -11,7 +11,7 @@ def f1_score(confusion):
     '''
     sensitivity = __import__('1-sensitivity').sensitivity
     precision = __import__('2-precision').precision
-    
+
     confusion = np.array(confusion)
 
     TP = np.diag(confusion)
