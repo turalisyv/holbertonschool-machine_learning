@@ -3,6 +3,8 @@
 My module document
 '''
 import numpy as np
+sensitivity = __import__('1-sensitivity').sensitivity
+precision = __import__('2-precision').precision
 
 
 def f1(confusion):
@@ -15,9 +17,9 @@ def f1(confusion):
     FP = np.sum(confusion, axis=0) - TP
     FN = np.sum(confusion, axis=1) - TP
 
-    precision = TP / (TP + FP)
-    recall = TP / (TP + FN)
+    precision = precision(confusion)
+    sensitivity = sensitivity(confusion)
 
-    f1 = 2 * precision * recall / (precision + recall)
+    f1 = 2 * precision * sensitivity / (precision + sensitivity)
 
     return f1
