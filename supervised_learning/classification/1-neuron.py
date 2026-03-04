@@ -19,6 +19,12 @@ class Neuron:
         self.__W = np.random.normal(size=(1, nx))
         self.__b = 0
         self.__A = 0
+    
+    def sigmoid(self, x):
+        return 1 / 1 + np.exp(-x)
+
+    def forward_prop(self, X):
+        self.__A = self.sigmoid(np.dot(X, self.__W) + self.__b)
 
     @property
     def W(self):
