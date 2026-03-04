@@ -28,7 +28,7 @@ class Neuron:
         '''My functiion document'''
         self.__A = self.sigmoid(np.dot(self.__W, X) + self.__b)
         return self.__A
-    
+
     def cost(self, Y, A):
         '''My function document'''
         m = Y.shape[1]
