@@ -21,13 +21,13 @@ class Neuron:
         self.__A = 0
     
     @property
-    def get_W(self):
+    def W(self):
         return self.__W
 
     @property
-    def get_b(self):
+    def b(self):
         return self.__b
 
     @property
-    def get_A(self):
+    def A(self):
         return self.__A
