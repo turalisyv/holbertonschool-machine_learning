@@ -21,9 +21,11 @@ class Neuron:
         self.__A = 0
 
     def sigmoid(self, x):
+        '''My function document'''
         return 1 / (1 + np.exp(-x))
 
     def forward_prop(self, X):
+        '''My functiion document'''
         self.__A = self.sigmoid(np.dot(self.__W, X) + self.__b)
         return self.__A
 
