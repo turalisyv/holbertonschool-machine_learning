@@ -7,9 +7,12 @@ import numpy as np
 
 def one_hot_encode(Y, classes):
     '''My function document'''
-    res = np.zeros(shape=(len(Y), classes))
-
-    for i in range(len(Y)):
-        res[i][Y[i]] = 1
-
-    return res
+    if type(Y) is not np.ndarray:
+        return None
+    if type(classes) is not int:
+        return None
+    try:
+        one_hot = np.eye(classes)[Y].transpose()
+        return one_hot
+    except Exception as err:
+        return None
