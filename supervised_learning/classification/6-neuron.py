@@ -3,6 +3,7 @@
 My module document
 '''
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 class Neuron:
@@ -58,6 +59,7 @@ class Neuron:
 
     def train(self, X, Y, iterations=5000, alpha=0.05):
         for iter in range(iterations):
+            self.forward_prop(X)
             self.gradient_descent(X, Y, self.A, alpha=alpha)
         return self.evaluate(X, Y)
 
