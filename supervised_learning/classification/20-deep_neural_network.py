@@ -60,6 +60,7 @@ class DeepNeuralNetwork:
         return C
 
     def evaluate(self, X, Y):
+        '''My function document'''
         A, _ = self.forward_prop(X)
         cost = self.cost(Y, A)
         prediction = np.where(A >= 0.5, 1, 0)
