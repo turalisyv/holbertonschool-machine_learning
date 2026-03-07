@@ -29,6 +29,10 @@ class NeuralNetwork:
         self.__A1 = 0
         self.__A2 = 0
 
+    def sigmoid(self, x):
+        '''My function document'''
+        return 1 / (1 + np.exp(-x))
+
     def forward_prop(self, X):
         '''My functiion document'''
         self.__A1 = self.sigmoid(np.dot(self.__W1, X) + self.__b1)
