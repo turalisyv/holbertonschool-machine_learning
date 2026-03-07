@@ -35,13 +35,13 @@ class DeepNeuralNetwork:
             self.weights[f'b{i + 1}'] = np.zeros((layers[i], 1))
 
     @property
-        def L(self):
-            return self.__L
+    def L(self):
+        return self.__L
 
-        @property
-        def cache(self):
-            return self.__cache
+    @property
+    def cache(self):
+        return self.__cache
 
-        @property
-        def weights(self):
-            return self.__weights
+    @property
+    def weights(self):
+        return self.__weights
