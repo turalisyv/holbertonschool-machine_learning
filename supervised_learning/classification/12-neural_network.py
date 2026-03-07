@@ -50,8 +50,8 @@ class NeuralNetwork:
 
     def evaluate(self, X, Y):
         '''My function document'''
-        y_pred = self.forward_prop(X)
-        A = self.cost(Y, y_pred[1])
+        y_pred = self.forward_prop(X)[1]
+        A = self.cost(Y, y_pred)
         y_pred = np.int32(y_pred > 0.5)
         return y_pred, A
 
