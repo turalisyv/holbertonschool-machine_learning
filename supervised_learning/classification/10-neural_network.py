@@ -36,7 +36,7 @@ class NeuralNetwork:
     def forward_prop(self, X):
         '''My functiion document'''
         self.__A1 = self.sigmoid(np.dot(self.__W1, X) + self.__b1)
-        self.__A2 = self.sigmoid(np.dot(self.__W2, __A2) + self.__b2)
+        self.__A2 = self.sigmoid(np.dot(self.__W2, __A1) + self.__b2)
         return self.__A2
 
     @property
