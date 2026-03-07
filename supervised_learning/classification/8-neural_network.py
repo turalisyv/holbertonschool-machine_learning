@@ -22,8 +22,8 @@ class NeuralNetwork:
         if nodes < 1:
             raise ValueError("nodes must be a positive integer")
 
-        self.W1 = np.random.normal(size=(1, nx))
-        self.W2 = np.random.normal(size=(1, nx))
+        self.W1 = np.random.normal(size=(nodes, nx))
+        self.W2 = np.random.normal(size=(nodes, nx))
         self.b1 = 0
         self.b2 = 0
         self.A1 = 0
