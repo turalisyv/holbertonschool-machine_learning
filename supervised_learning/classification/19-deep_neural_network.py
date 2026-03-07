@@ -46,9 +46,18 @@ class DeepNeuralNetwork:
             b = self.__weights['b' + str(i)]
             A_prev = self.__cache['A' + str(i - 1)]
             Z = np.dot(W, A_prev) + b
-            A = 1 / (1 + np.exp(-Z))
+            A = self.sigmoid(Z)
             self.__cache['A' + str(i)] = A
         return self.__cache['A' + str(self.__L)], self.__cache
+
+    def cost(self, Y, A):
+        '''My function document'''
+        m = Y.shape[1]
+        C = - (1 / m) * np.sum(
+            np.multiply(
+                Y, np.log(A)) + np.multiply(
+                1 - Y, np.log(1.0000001 - A)))
+        return C
 
     @property
     def L(self):
