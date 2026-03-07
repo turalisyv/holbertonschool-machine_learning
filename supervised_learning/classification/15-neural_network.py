@@ -72,7 +72,7 @@ class NeuralNetwork:
         self.__W1 = self.__W1 - alpha * dW1
         self.__b1 = self.__b1 - alpha * db1
 
-    def train(self, X, Y, iterations=5000, alpha=0.05):
+    def train(self, X, Y, iterations=5000, alpha=0.05, graph=True, step=100):
         '''My function document'''
         if not isinstance(iterations, int):
             raise TypeError("iterations must be an integer")
