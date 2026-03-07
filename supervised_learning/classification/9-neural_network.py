@@ -30,25 +30,25 @@ class NeuralNetwork:
         self.__A2 = 0
 
     @property
-    def W(self):
+    def W1(self):
         return self.__W1
 
     @property
-    def b(self):
+    def b1(self):
         return self.__b1
 
     @property
-    def A(self):
+    def A1(self):
         return self.__A1
 
     @property
-    def W(self):
+    def W2(self):
         return self.__W2
 
     @property
-    def b(self):
+    def b2(self):
         return self.__b2
 
     @property
-    def A(self):
+    def A2(self):
         return self.__A2
