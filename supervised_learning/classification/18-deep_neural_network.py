@@ -33,8 +33,9 @@ class DeepNeuralNetwork:
                     layers[i], layers[i - 1]) * np.sqrt(2 / layers[i - 1])
 
             self.weights[f'b{i + 1}'] = np.zeros((layers[i], 1))
-    
+
     def forward_prop(self, X):
+        '''My function document'''
         self.__cache['A0'] = X
         for i in range(1, self.__L + 1):
             W = self.__weights['W' + str(i)]
