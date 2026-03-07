@@ -5,8 +5,6 @@ My module document
 import numpy as np
 
 
-import numpy as np
-
 def one_hot_encode(Y, classes):
     """
     My function document
