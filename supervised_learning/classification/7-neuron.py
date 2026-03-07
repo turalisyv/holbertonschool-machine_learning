@@ -56,7 +56,7 @@ class Neuron:
         self.__W = self.__W - alpha * dW
         self.__b = self.__b - alpha * db
 
-    def train(self, X, Y, iterations=5000, alpha=0.05):
+    def train(self, X, Y, iterations=5000, alpha=0.05, verbose=True, graph=True, step=100):
         '''My function document'''
         if not isinstance(iterations, int):
             raise TypeError("iterations must be an integer")
@@ -70,9 +70,26 @@ class Neuron:
         if alpha < 0:
             raise ValueError("alpha must be positive")
 
-        for iter in range(iterations):
+        steps = [i for i in range(0, iterations + 1, step)]
+        costs = []
+
+        for iter in range(iterations + 1):
             self.forward_prop(X)
             self.gradient_descent(X, Y, self.A, alpha=alpha)
+
+            if iter % step == 0:
+                cost = self.cost(Y, self.A)
+                costs.append(cost)
+                if verbose:
+                    print("Cost after {} iterations: {}".format(iter, cost))
+
+        if graph:
+            plt.plot(steps, costs)
+            plt.xlabel("iteration")
+            plt.ylabel("cost")
+            plt.title("Training Cost")
+            plt.show()
+
         return self.evaluate(X, Y)
 
     @property
