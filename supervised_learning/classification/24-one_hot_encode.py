@@ -5,13 +5,21 @@ My module document
 import numpy as np
 
 
+import numpy as np
+
 def one_hot_encode(Y, classes):
-    '''
+    """
     My function document
-    '''
-    res = np.zeros(shape=(len(Y), classes))
-
-    for i in range(len(Y)):
-        res[i][Y[i]] = 1
-
-    return res
+    """
+    try:
+        
+        if not isinstance(Y, np.ndarray):
+            return None
+        
+        m = Y.shape[0]
+        one_hot = np.zeros((classes, m))
+        one_hot[Y, np.arange(m)] = 
+        return one_hot
+        
+    except Exception:
+        return None
