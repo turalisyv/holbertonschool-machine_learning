@@ -44,7 +44,7 @@ class Neuron:
         A = self.cost(Y, y_pred)
         y_pred = np.int32(y_pred > 0.5)
         return y_pred, A
-    
+
     def gradient_descent(self, X, Y, A, alpha=0.05):
         '''My function document'''
         m = Y.shape[1]
