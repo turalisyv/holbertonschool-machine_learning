@@ -5,4 +5,4 @@ import tensorflow.keras as K
 
 def one_hot(labels, classes=None):
     """My function document"""
-    return K.ops.one_hot(labels, num=classes=classes)
+    return K.ops.one_hot(labels, num_classes=classes)
