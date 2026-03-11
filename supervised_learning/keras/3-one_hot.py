@@ -5,4 +5,6 @@ import tensorflow.keras as K
 
 def one_hot(labels, classes=None):
     """My function document"""
-    return K.ops.one_hot(labels, 10)
+    if classes is None:
+        classes = len(set(labels))
+    return K.ops.one_hot(labels, classes)
