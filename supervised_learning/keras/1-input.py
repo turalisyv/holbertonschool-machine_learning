@@ -5,20 +5,18 @@ import tensorflow.keras as K
 
 def build_model(nx, layers, activations, lambtha, keep_prob):
     """My function document"""
-    model = [K.layers.Input(shape=(nx,))]
+    input = K.layers.Input(shape=(nx,))
+    output = input
+    for i, (n, act) in enumerate(zip(layers, activations)):
+        output = K.layers.Dense(
+            units=n,
+            activation=act,
+            kernel_regularizer=K.regularizers.l2(lambtha)
+        )(output)
 
-    for n, act in zip(layers, activations):
-        model.append(
-            K.layers.Dense(
-                units=n,
-                activation=act,
-                kernel_regularizer=K.regularizers.l2(lambtha)
-            )
-        )
-        model.append(
-            K.layers.Dropout(rate=1.0 - keep_prob)
-        )
+        if i < len(layers) - 1:
+            output = K.layers.Dropout(rate=1.0 - keep_prob)(output)
 
-    model.pop()
+    model = K.models.Model(input, output)
 
-    return K.Sequential(model)
+    return model
