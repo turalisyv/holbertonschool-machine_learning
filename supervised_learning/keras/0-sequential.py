@@ -13,7 +13,7 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
             activation=act, 
             kernel_regularizer=K.regularizers.l2(lambtha)))
         
-        model.append(K.layers.Dropout(rate=keep_prob))
+        model.append(K.layers.Dropout(rate=1.0-keep_prob))
 
     model.pop()
 
