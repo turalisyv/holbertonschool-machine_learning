@@ -9,7 +9,6 @@ def build_model(nx, layers, activations, lambtha, keep_prob):
 
     for n, act in zip(layers, activations):
         model.append(K.layers.Dense(units=n, activation=act, kernel_regularizer=K.regularizers.l2(lambtha)))
-        
         model.append(K.layers.Dropout(rate=1.0-keep_prob))
 
     model.pop()
