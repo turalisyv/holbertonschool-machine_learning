@@ -10,26 +10,12 @@ def train_model(network, data, labels, batch_size,
                 alpha=0.1, decay_rate=1,):
     """My function document"""
 
-    if learning_rate_decay is True:
-        K.optimizers.schedules.InverseTimeDecay(
-            initial_learning_rate=alpha,
-            decay_rate=decay_rate,
-        )
+    dcy = K.optimizers.schedules.InverseTimeDecay(
+        initial_learning_rate=alpha,
+        decay_rate=decay_rate,
+    )
 
-    if early_stopping is True:
-        es = K.callbacks.EarlyStopping(monitor='val_loss', patience=patience)
-        history = network.fit(
-            x=data,
-            y=labels,
-            batch_size=batch_size,
-            validation_data=validation_data,
-            epochs=epochs,
-            verbose=verbose,
-            shuffle=shuffle,
-            callbacks=[es]
-        )
-
-        return history
+    es = K.callbacks.EarlyStopping(monitor='val_loss', patience=patience)
 
     history = network.fit(
         x=data,
@@ -38,7 +24,9 @@ def train_model(network, data, labels, batch_size,
         validation_data=validation_data,
         epochs=epochs,
         verbose=verbose,
-        shuffle=shuffle
+        shuffle=shuffle,
+        callbacks=[es] if early_stopping else None,
+        learning_rate=dcy if learning_rate_decay else None
     )
 
     return history
