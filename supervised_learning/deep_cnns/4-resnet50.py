@@ -6,13 +6,12 @@ identity_block = __import__('2-identity_block').identity_block
 projection_block = __import__('3-projection_block').projection_block
 
 def resnet50():
-    '''My class document''' 
+    '''My class document'''
     init = K.initializers.he_normal(seed=0)
 
     X_input = K.Input(shape=(224, 224, 3))
 
     X = K.layers.ZeroPadding2D((3, 3))(X_input)
-
     X = K.layers.Conv2D(64, (7, 7), strides=(2, 2),
                         kernel_initializer=init)(X)
     X = K.layers.BatchNormalization(axis=-1)(X)
@@ -42,6 +41,7 @@ def resnet50():
     X = K.layers.AveragePooling2D(pool_size=(7, 7))(X)
 
     X = K.layers.Flatten()(X)
+
     X = K.layers.Dense(1000, activation='softmax',
                        kernel_initializer=init)(X)
 
