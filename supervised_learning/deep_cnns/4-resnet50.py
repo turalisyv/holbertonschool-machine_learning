@@ -2,13 +2,11 @@
 '''My module document'''
 
 from tensorflow import keras as K
-
+identity_block = __import__('2-identity_block').identity_block
+projection_block = __import__('3-projection_block').projection_block
 
 def resnet50():
     '''My class document'''
-
-    identity_block = __import__('2-identity_block').identity_block
-    projection_block = __import__('3-projection_block').projection_block
 
     init = K.initializers.he_normal(seed=0)
 
@@ -19,8 +17,7 @@ def resnet50():
                         kernel_initializer=init)(X_input)
     X = K.layers.BatchNormalization(axis=-1)(X)
     X = K.layers.ReLU()(X)
-    X = K.layers.MaxPooling2D((3, 3), strides=(2, 2),
-                              padding='same')(X)
+    X = K.layers.MaxPooling2D((3, 3), strides=(2, 2), padding='same')(X)
 
     X = projection_block(X, [64, 64, 256], s=1)
     X = identity_block(X, [64, 64, 256])
