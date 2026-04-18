@@ -7,16 +7,18 @@ projection_block = __import__('3-projection_block').projection_block
 
 def resnet50():
     '''My class document'''
+
     init = K.initializers.he_normal(seed=0)
 
     X_input = K.Input(shape=(224, 224, 3))
 
-    X = K.layers.ZeroPadding2D((3, 3))(X_input)
     X = K.layers.Conv2D(64, (7, 7), strides=(2, 2),
-                        kernel_initializer=init)(X)
+                        padding='same',
+                        kernel_initializer=init)(X_input)
     X = K.layers.BatchNormalization(axis=-1)(X)
-    X = K.layers.Activation('relu')(X)
-    X = K.layers.MaxPooling2D((3, 3), strides=(2, 2), padding='same')(X)
+    X = K.layers.ReLU()(X)
+    X = K.layers.MaxPooling2D((3, 3), strides=(2, 2),
+                              padding='same')(X)
 
     X = projection_block(X, [64, 64, 256], s=1)
     X = identity_block(X, [64, 64, 256])
