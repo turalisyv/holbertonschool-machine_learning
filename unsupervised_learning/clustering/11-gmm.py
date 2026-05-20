@@ -2,6 +2,7 @@
 """My module document"""
 import sklearn.mixture
 
+
 def gmm(X, k):
     """My function document"""
     model = sklearn.mixture.GaussianMixture(k)
