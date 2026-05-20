@@ -24,3 +24,6 @@ def initialize(X, k):
         )
 
         return centroids
+
+    except ValueError:
+        return None
