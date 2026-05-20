@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """My module document"""
 import sklearn.cluster
-import numpy as np
+
 
 def kmenas(X, k):
     """My function document"""
